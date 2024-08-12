@@ -32,6 +32,8 @@ Route::get('/show-validasi-arsip', [BerkasController::class, 'showValidasiArsip'
 
 
 Route::get('/get-arsip', [BerkasController::class, 'getArsip']);
+Route::post('/get-arsip-id', [BerkasController::class, 'getByIdArsip']);
+Route::post('/delete-arsip-id', [BerkasController::class, 'deleteByIdArsip']);
 Route::get('/get-selesai-arsip', [BerkasController::class, 'getSelesaiArsip']);
 Route::get('/get-setuju-arsip', [BerkasController::class, 'getSetujuArsip']);
 Route::get('/get-ditolak-arsip', [BerkasController::class, 'getDitolakArsip']);
