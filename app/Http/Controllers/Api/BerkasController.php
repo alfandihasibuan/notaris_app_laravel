@@ -25,7 +25,7 @@ class BerkasController extends Controller {
     }
 
     public function getByIdArsip(Request $request) {
-        $berkas = Berkas::where('kode_berkas', $request->kode_berkas)->get();
+        $berkas = Berkas::where('kode_berkas', $request->kode_berkas)->first();
 
         return response()->json($berkas);
     }
