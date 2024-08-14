@@ -6,11 +6,20 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\BerkasResource;
 use Illuminate\Http\Request;
 use App\Models\Berkas;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 
 class BerkasController extends Controller {
     public function showArsip() {
         $berkas = Berkas::count();
+
+        return new BerkasResource(true, 'Arsip Selesai', $berkas);
+    }
+
+    public function showArsipNow() {
+        $currentMonth = Carbon::now()->month;
+        $berkas = Berkas::whereMonth('created_at', $currentMonth)
+            ->count();
 
         return new BerkasResource(true, 'Arsip Selesai', $berkas);
     }
@@ -155,6 +164,10 @@ class BerkasController extends Controller {
         ]);
 
         return new BerkasResource(true, 'Berhasil Menambahkan Akta', $berkas);
+    }
+
+    public function getPhoto() {
+        return response()->file(public_path('/storage/ktp-pertama/vFcDUmHuU7KCY5TlKXZovnnCcxbFMoMxzYgmciNi.jpg'));
     }
 
     public function setStatusBerkas(Request $request) {

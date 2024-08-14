@@ -25,6 +25,7 @@ Route::post('/login', [AuthController::class, 'login']);
 
 
 Route::get('/show-arsip', [BerkasController::class, 'showArsip']);
+Route::get('/show-arsip-now', [BerkasController::class, 'showArsipNow']);
 Route::get('/show-selesai-arsip', [BerkasController::class, 'showSelesaiArsip']);
 Route::get('/show-setuju-arsip', [BerkasController::class, 'showSetujuArsip']);
 Route::get('/show-ditolak-arsip', [BerkasController::class, 'showDitolakArsip']);
@@ -46,3 +47,5 @@ Route::post('/update-arsip-akta', [BerkasController::class, 'updateBerkasAkta'])
 
 Route::get('/show-pengguna', [PenggunaController::class, 'showPengguna']);
 Route::post('/create-pengguna', [PenggunaController::class, 'sendPengguna']);
+
+Route::get('/get-photo', [BerkasController::class, 'getPhoto']);
