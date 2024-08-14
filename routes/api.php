@@ -46,6 +46,7 @@ Route::post('/create-arsip', [BerkasController::class, 'sendBerkas']);
 Route::post('/update-arsip-akta', [BerkasController::class, 'updateBerkasAkta']);
 
 Route::get('/show-pengguna', [PenggunaController::class, 'showPengguna']);
+Route::get('/get-pengguna', [PenggunaController::class, 'getPengguna']);
 Route::post('/create-pengguna', [PenggunaController::class, 'sendPengguna']);
 
 Route::get('/get-photo', [BerkasController::class, 'getPhoto']);

@@ -16,7 +16,13 @@ class PenggunaController extends Controller {
         return new PenggunaResource(true, 'Total Pengguna', $data);
     }
 
-    public function getPengguna(Request $request) {
+    public function getPengguna() {
+        $berkas = User::get();
+
+        return response()->json($berkas);
+    }
+
+    public function getPenggunaById(Request $request) {
         $berkas = User::where('id', $request->id)->get();
 
         return response()->json($berkas);
