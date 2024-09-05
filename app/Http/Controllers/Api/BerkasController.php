@@ -147,6 +147,7 @@ class BerkasController extends Controller {
     public function updateBerkasAkta(Request $request) {
         $validator = Validator::make($request->all(), [
             'no_akta' => 'required',
+            'tanggal_akta' => 'required',
             'file_akta' => 'required|mimes:pdf',
         ]);
 
@@ -157,7 +158,7 @@ class BerkasController extends Controller {
         $kode_berkas = $request->kode_berkas;
 
         $berkas = Berkas::where('kode_berkas', $kode_berkas)->update([
-            'tanggal_akta' => date('Y-m-d'),
+            'tanggal_akta' => $request->tanggal_akta,
             'no_akta' => $request->no_akta,
             'file_akta' => $nama_file_akta,
             'status_berkas' => "selesai"
