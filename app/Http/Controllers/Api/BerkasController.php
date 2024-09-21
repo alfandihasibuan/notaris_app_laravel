@@ -92,6 +92,8 @@ class BerkasController extends Controller {
 
     public function sendBerkas(Request $request) {
         $validator = Validator::make($request->all(), [
+            'nik_pihak_pertama' => 'required',
+            'nik_pihak_kedua' => 'required',
             'nama_pihak_pertama' => 'required',
             'nama_pihak_kedua' => 'required',
             'jenis_berkas'     => 'required',
@@ -126,6 +128,8 @@ class BerkasController extends Controller {
 
         $berkas = Berkas::create([
             'kode_berkas' => $kode_berkas,
+            'nik_pihak_pertama' => $request->nik_pihak_pertama,
+            'nik_pihak_kedua' => $request->nik_pihak_kedua,
             'nama_pihak_pertama' => $request->nama_pihak_pertama,
             'nama_pihak_kedua' => $request->nama_pihak_kedua,
             'jenis_berkas'     => $request->jenis_berkas,
